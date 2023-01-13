@@ -7,7 +7,43 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="./output.css">
 </head>
-<body>
-    
+<body class="body-bg min-h-screen overflow-hidden">
+    <div class="p-4 xl:w-1/2 mx-auto 2xl:p-40">
+        <header class="text-center">
+            <h1 class="text-4xl font-bold text-white">Breast Cancer Prediction System</h1>
+        </header>
+
+        <main class="bg-gray-100 mt-8 rounded-lg">
+            <section class="px-12 py-4 2xl:pt-16">
+                <h2 class="text-2xl font-semibold">Sign Up</h2>
+                <p>Make new account</p>
+            </section>
+
+            <form class="grid grid-cols-2 gap-6" method="" action="#">
+                <div class="col-span-2 flex flex-col mx-12 rounded bg-gray-300">
+                    <label class="font-semibold p-4">Username</label>
+                    <input type="text" placeholder="Enter your fullname" class="bg-gray-300 text-gray-700 px-4 pb-2 focus:outline-none border-b-4 border-gray-400 focus:border-purple-600 transition duration-500">
+                </div>
+
+                <div class="flex flex-col ml-12 bg-gray-300 rounded">
+                    <label class="font-semibold p-4">Email</label>
+                    <input type="email" placeholder="Enter your email" class="px-4 pb-2 bg-gray-300  focus:outline-none border-b-4 border-gray-400 focus:border-purple-600 transition duration-500">
+                </div>
+
+                <div class="flex flex-col mr-12 bg-gray-300 rounded">
+                    <label class="font-semibold p-4">Password</label>
+                    <input type="password" placeholder="Enter your password" class="px-4 pb-2 bg-gray-300 border-b-4 border-gray-400 focus:outline-none focus:border-purple-600 transition duration-500">
+                </div>
+
+                <div class="bg-purple-600 col-span-2 mx-12 flex justify-center mb-12  rounded hover:bg-purple-800 transition duration-200 cursor-pointer">
+                    <input type="submit" value="Sign Up" class="py-2 text-white font-semibold ">
+                </div>
+                
+            </form>
+        </main>
+        <div class="flex justify-center mt-2 xl:mt-16 text-white">
+            <p>Back to <a href="#" class="font-bold">Login</a></p>
+        </div>
+    </div>
 </body>
 </html>
