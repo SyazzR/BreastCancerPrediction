@@ -8,6 +8,144 @@
     <link rel="stylesheet" href="./output.css">
 </head>
 <body>
+    <nav class="body-bg flex justify-between p-8">
+        <div class="flex items-center">
+            <h1 class="text-white font-bold text-3xl">Breast Cancer Prediction System</h1>
+        </div>
+        <ul class="flex items-center text-white font-semibold space-x-8 ">
+            <li class=" hover:scale-125">
+                <a href="#">Home</a>
+            </li>
+            <li class="hover:scale-125">
+                <a href="#">Predict</a>
+            </li>
+            <li class="relative">
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                </button>
+
+                <ul class="absolute hidden z-100 bg-gray-100 right-0 mt-2 rounded text-gray-600">
+                    <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
+                        <a href="#" class="">Profile</a>
+                    </li>
+                    <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
+                        <a href="#">Logout</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="p-6">
+        <div>
+            <h1 class="text-3xl font-semibold">Prediction Form</h1>
+            <ol class="list-disc list-inside py-4">
+                <li>
+                    Features of the breast mass are computed from digitized image of fine needle aspirate (FDA). They describe characteristics of the cell nuclei present in the image.
+                </li>
+                <li>
+                    15 feature is needed in order to the prediction, where six mean value, one standard error value and eight worst value
+                </li>
+                <li>
+                    This machine learning prediction will predict whether the patient will have either Benign or Malignant tumor
+                </li>
+            </ol>
+        </div>
+
+        <div>
+            <div class="mt-8 mb-4">
+                <h1 class="text-xl font-semibold">Mean Value</h1>
+            </div>
     
+            <div class="grid grid-cols-3 gap-8">
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">1. Radius mean</label>
+                    <input type="number" step="any" placeholder="Enter radius_mean" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">2. Texture mean</label>
+                    <input type="number" step="any" placeholder="Enter texture_mean" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">3. Perimeter mean</label>
+                    <input type="number" step="any" placeholder="Enter perimeter_mean" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">4. Area mean</label>
+                    <input type="number" step="any" placeholder="Enter area_mean" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">5. Concavity mean</label>
+                    <input type="number" step="any" placeholder="Enter concavity_mean" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">6. Concave points mean</label>
+                    <input type="number" step="any" placeholder="Enter concave_points_mean" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="mt-8 mb-4">
+                <h1 class="text-xl font-semibold">Standard Error (SE) value</h1>
+            </div>
+    
+            <div class="grid grid-cols-3 gap-8">
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">1. Aria SE</label>
+                    <input type="number" step="any" placeholder="Enter area_se" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div class="mt-8 mb-4">
+                <h1 class="text-xl font-semibold">Worst Value</h1>
+            </div>
+    
+            <div class="grid grid-cols-3 gap-8">
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">1. Radius worst</label>
+                    <input type="number" step="any" placeholder="Enter radius_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">2. Texture worst</label>
+                    <input type="number" step="any" placeholder="Enter texture_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">3. Perimeter worst</label>
+                    <input type="number" step="any" placeholder="Enter perimeter_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">4. Area worst</label>
+                    <input type="number" step="any" placeholder="Enter area_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">5. Smoothness worst</label>
+                    <input type="number" step="any" placeholder="Enter smoothness_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">6. Concavity worst</label>
+                    <input type="number" step="any" placeholder="Enter concavity_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">7. Concave points worst</label>
+                    <input type="number" step="any" placeholder="Enter concave_points_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+                <div class="flex flex-col bg-gray-300 rounded-lg">
+                    <label class="px-4 pt-2">8. Symmetry worst</label>
+                    <input type="number" step="any" placeholder="Enter symmetry_worst" class="mb-2 px-6 pt-2 bg-gray-300 focus:outline-none focus:border-purple-600 border-b-2 border-gray-500 transition duration-500">
+                </div>
+            </div>
+        </div>
+
+        <div class=" flex justify-center my-8">
+            <button type="submit" class="bg-green-500 rounded py-2 px-16 text-white font-bold hover:bg-green-600">Predict</button>
+        </div>
+
+        
+    </div>
 </body>
 </html>
