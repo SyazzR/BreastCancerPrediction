@@ -20,7 +20,7 @@
                 <p>Login to your account.</p>
             </section>
     
-            <form class="" method="" action="#">
+            <form method="post" action="{{ url_for('login') }}">
                 <div class="flex flex-col bg-gray-300 mx-12 rounded ">
                     <label class="font-semibold p-4">Email</label>
                     <input type="text" id="email" name="email" placeholder="example@gmail.com" class="bg-gray-300 text-gray-700 px-4 pb-2 focus:outline-none border-b-4 border-gray-400 focus:border-purple-600 transition duration-500">
@@ -29,18 +29,16 @@
                     <label class="font-semibold p-4">Password</label>
                     <input type="password" id="password" name="password" placeholder="********" class="bg-gray-300 focus:outline-none text-gray-700 px-4 pb-2 border-b-4 border-gray-400 focus:border-purple-600">
                 </div>
+                <div class="flex justify-center pt-4 pb-12">
+                    <input type="submit" value="Login" class="bg-purple-600 text-white font-semibold py-2 w-4/5 rounded hover:bg-purple-800 transition duration-200">
+                </div>
             </form>
-    
-            <div class="flex justify-center pt-4 pb-12">
-                <input type="submit" value="Login" class="bg-purple-600 text-white font-semibold py-2 w-4/5 rounded hover:bg-purple-800 transition duration-200">
-            </div>
-            
         </main>
     </div>
     
 
     <div class="pb-2 max-w-lg mx-auto mt-8 flex justify-center text-white">
-        <p>Don't have an acoount ? <a href="#" class="font-bold hover:border-b-2 hover:border-gray-100">Sign Up</a><p class="mx-2 font-extrabold">|</p>  <a href="#" class="font-bold hover:border-b-2 hover:border-gray-100">Home</a></p>
+        <p>Don't have an acoount ? <a href="#" class="font-bold hover:border-b-2 hover:border-gray-100">Register</a><p class="mx-2 font-extrabold">|</p>  <a href="#" class="font-bold hover:border-b-2 hover:border-gray-100">Home</a></p>
     </div>
 </body>
 </html>

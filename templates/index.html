@@ -11,8 +11,8 @@
 <body>
     <div class="relative overflow-hidden">
         <div class=" m-2 p-2">
-            <a href="/" class="font-semibold text-gray-600 ">Login</a>
-            <a href="/" class="font-semibold text-gray-600 ml-8">Register</a>
+            <a href="{{ url_for('login') }}" class="font-semibold text-gray-600 ">Login</a>
+            <a href="{{ url_for('register') }}" class="font-semibold text-gray-600 ml-8">Register</a>
         </div>
 
         <div class=" mt-10 mx-auto max-w-7xl ">
@@ -26,7 +26,7 @@
 
             <div class="mt-8 ml-4 flex justify-start">
                 <div class="bg-purple-500 rounded-md py-4 px-8">
-                    <a href='/' class="text-white font-bold">Predict</a>
+                    <a href="{{ url_for('login') }}" class="text-white font-bold">Predict</a>
                 </div>
             </div>
         </div>
