@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>User homepage</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css')}}">
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <style>
+            .body-bg {
+                background-color: #9921e8;
+                background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="flex justify-between body-bg p-8">
+            <div class="flex items-center">
+                <span class="text-white font-bold text-3xl">Breast Cancer Prediction System</span>
+            </div>
+    
+            <div class="flex space-x-8">
+                <ul class="flex space-x-8">
+                    <li>
+                        <a class="my-2 text-white transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('home')}}">Home</a>
+                    </li>
+                    <li>
+                        <a class="my-2 text-white transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('predict')}}">Predict</a>
+                    </li>
+                </ul>
+                <div class="relative"
+                    x-data="{isOpen: false}"
+                >
+                    <button class="flex"
+                        @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </button>
+    
+                    <ul class="absolute z-100 bg-gray-100 right-0 mt-2 rounded text-gray-600"
+                        x-show="isOpen" @click.away="isOpen = false"
+                    >
+                        <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
+                            <a class="my-2 text-gray-600 transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('profile')}}">Profile</a>
+                        </li>
+                        <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
+                            <a class="my-2 text-gray-600 transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('logout')}}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div>
+            <div class="p-4">
+                <h1 class="font-semibold text-4xl tracking-wide pt-12">Welcome back,  {{ username }}</h1>
+            </div>
+
+            <div class="grid grid-cols-3 gap-12 p-4">
+                <div class="border-2 border-purple-600 rounded p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-purple-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .555.26.532.57a48.039 48.039 0 01-.642 5.056c1.518.19 3.058.309 4.616.354a.64.64 0 00.657-.643v0c0-.355-.186-.676-.401-.959a1.647 1.647 0 01-.349-1.003c0-1.035 1.008-1.875 2.25-1.875 1.243 0 2.25.84 2.25 1.875 0 .369-.128.713-.349 1.003-.215.283-.4.604-.4.959v0c0 .333.277.599.61.58a48.1 48.1 0 005.427-.63 48.05 48.05 0 00.582-4.717.532.532 0 00-.533-.57v0c-.355 0-.676.186-.959.401-.29.221-.634.349-1.003.349-1.035 0-1.875-1.007-1.875-2.25s.84-2.25 1.875-2.25c.37 0 .713.128 1.003.349.283.215.604.401.96.401v0a.656.656 0 00.658-.663 48.422 48.422 0 00-.37-5.36c-1.886.342-3.81.574-5.766.689a.578.578 0 01-.61-.58v0z" />
+                      </svg>
+                    <h2 class="font-bold text-2xl py-4">Predict</h2>
+                    <p class="mb-8">Fill in the value</p>
+                    <a href="{{url_for('predict')}}" class="inline-flex p-2 rtl:-scale-x-100 text-purple-500 capitalize transition-colors duration-300 transform bg-purple-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500" >
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="border-2 border-purple-600 rounded p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-purple-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                      </svg>
+                      <h2 class="font-bold text-2xl py-4">Profile</h2>
+                      <p class="mb-8">Check my profile</p>
+                      <a href="{{url_for('profile')}}" class="inline-flex p-2 rtl:-scale-x-100 text-purple-500 capitalize transition-colors duration-300 transform bg-purple-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    </a>
+                </div>
+                <div class="border-2 border-purple-600 rounded p-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-purple-600">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      
+                      <h2 class="font-bold text-2xl py-4">History</h2>
+                      <p class="mb-8">Check my history</p>
+                      <a href="{{url_for('profile')}}" class="inline-flex p-2 rtl:-scale-x-100 text-purple-500 capitalize transition-colors duration-300 transform bg-purple-100 rounded-full dark:bg-blue-500 dark:text-white hover:underline hover:text-blue-600 dark:hover:text-blue-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    </a>
+                </div>
+            </div>
+        </div>      
+    </body>
+</html>
+
