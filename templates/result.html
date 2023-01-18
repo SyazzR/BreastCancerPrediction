@@ -1,54 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Result</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='dist/output.css') }}">
-</head>
-<body>
-    <nav class="body-bg flex justify-between p-8">
-        <div class="flex items-center">
-            <h1 class="text-white font-bold text-3xl">Breast Cancer Prediction System</h1>
-        </div>
-        <ul class="flex items-center text-white font-semibold space-x-8 ">
-            <li class=" hover:scale-125">
-                <a href="#">Home</a>
-            </li>
-            <li class="hover:scale-125">
-                <a href="#">Predict</a>
-            </li>
-            <li class="relative">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                </button>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Prediction result</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/output.css')}}">
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <style>
+            .body-bg {
+                background-color: #9921e8;
+                background-image: linear-gradient(315deg, #9921e8 0%, #5f72be 74%);
+            }
+        </style>
+    </head>
 
-                <ul class="absolute hidden z-100 bg-gray-100 right-0 mt-2 rounded text-gray-600">
-                    <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
-                        <a href="#" class="">Profile</a>
+    <body>
+        <nav class="flex justify-between body-bg p-8">
+            <div class="flex items-center">
+                <span class="text-white font-bold text-3xl">Breast Cancer Prediction System</span>
+            </div>
+    
+            <div class="flex space-x-8">
+                <ul class="flex space-x-8">
+                    <li>
+                        <a class="my-2 text-white transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('home')}}">Home</a>
                     </li>
-                    <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
-                        <a href="#">Logout</a>
+                    <li>
+                        <a class="my-2 text-white transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('predict')}}">Predict</a>
                     </li>
                 </ul>
-            </li>
-        </ul>
-    </nav>
+                <div class="relative"
+                    x-data="{isOpen: false}"
+                >
+                    <button class="flex"
+                        @click="isOpen = !isOpen" @keydown.escape="isOpen = false"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </button>
+    
+                    <ul class="absolute z-100 bg-gray-100 right-0 mt-2 rounded text-gray-600"
+                        x-show="isOpen" @click.away="isOpen = false"
+                    >
+                        <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
+                            <a class="my-2 text-gray-600 transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('profile')}}">Profile</a>
+                        </li>
+                        <li class="pl-2 pr-24 border-b-4 py-4 border-gray-300 hover:border-purple-600 transition duration-500 hover:bg-gray-300">
+                            <a class="my-2 text-gray-600 transition-colors duration-300 transform dark:text-white-200 hover:text-gray-800 dark:hover:font-bold md:mx-4 md:my-0" href="{{url_for('logout')}}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+                
+        <div class="max-w-lg mx-auto rounded mt-16 border-2 border-purple-600 h-48">
+            <div class="text-center mt-8">
+                <h2 class="text-2xl font-semibold">Result</h2>
+                <p>{{ Diagnosis_text }}</p>
+            </div>
 
-    <div class="max-w-lg mx-auto rounded mt-16 border-2 border-purple-600">
-        <div class="text-center ">
-            <h2 class="text-2xl font-semibold">Result</h2>
-            <p class=" py-2">{{ diagnosis_text }}</p>
-            <br>
-            <p class="">Lorem ipsum xxxxxx</p>
-        </div>
-
-        <div class="text-center text-white py-4">
-            <a href="#" class="bg-green-500 py-1 px-8 rounded">Back</a>
-        </div>
-    </div>
-</body>
+            <div class="mt-5 text-center">
+                <a href="{{url_for('home')}}" class="w-full px-4 py-2 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md sm:mt-0 sm:w-1/2 sm:mx-2 hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40">
+                    Back
+                </a>
+            </div>
+        </div>                           
+                       
+    </body>
 </html>
+
+
+
+
+
