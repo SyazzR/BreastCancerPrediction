@@ -62,7 +62,7 @@ def login():
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     
-    return render_template('index.html', msg=msg)
+    return render_template('login.html', msg=msg)
 
 # http://localhost:5000/register - this will be the registration page
 @app.route('/register', methods=['GET', 'POST'])
